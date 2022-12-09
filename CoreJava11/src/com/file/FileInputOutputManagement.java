@@ -16,9 +16,9 @@ public class FileInputOutputManagement {
 		
 		FileInputStream fis = new FileInputStream("tops1.txt");
 		int i;
-		while((i=fis.read())!=-1) {
-			System.out.print((char)i);
-		}
+		while((i=fis.read())!=-1) {//-1 is end of the file. then it will be stop.
+			System.out.print((char)i);//int is convert to the char is called type casting.
+ 		}
 		fis.close();
 	}
 

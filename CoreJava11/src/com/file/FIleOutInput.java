@@ -13,7 +13,7 @@ public class FIleOutInput {
         fos.write(b);
         fos.flush();
         fos.close();
-        
+        System.out.println("Data Write Succefully.");
         FileInputStream fi =new FileInputStream("tops3.txt");
         int i;
         while((i=fi.read())!=-1) {
@@ -21,16 +21,16 @@ public class FIleOutInput {
         	
         }
         fi.close();
-        
+        System.out.println(" ");
         
         
         
         FileWriter fw =new FileWriter("tops4.txt");
-        String s1=" This is Tops4 File";
+        String s1="This is Tops4 File";
         fw.write(s1);
         fw.flush();
         fw.close();
-        
+        System.out.println("Data Write Succefully.");
         
         FileReader fr = new FileReader("tops4.txt");
         int x;
