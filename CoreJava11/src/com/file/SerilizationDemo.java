@@ -25,7 +25,7 @@ public class SerilizationDemo {
 	public static void main(String[] args) throws Exception {
 		Student s1 =new Student(1,"Piyush",90);
 		FileOutputStream fos = new FileOutputStream("Ser");
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		ObjectOutputStream oos = new ObjectOutputStream(fos); 
 		oos.writeObject(s1);
 		oos.flush();
 		oos.close();

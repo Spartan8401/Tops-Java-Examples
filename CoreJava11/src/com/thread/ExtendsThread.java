@@ -2,8 +2,7 @@ package com.thread;
 
 	class NewsThread extends Thread{
 
-		
-			public NewsThread() {
+					public NewsThread() {
 				super("Child Thread");
 				start();
 			}
