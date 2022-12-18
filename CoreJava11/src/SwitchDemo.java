@@ -5,9 +5,9 @@ public class SwitchDemo {
 	 boolean flag = true;
 	 Scanner sc = new Scanner(System.in);
 	 do {
-		 System.out.println("ENter the A Value:");
+		 System.out.println("Enter the A Value:");
 		 A = sc.nextInt();
-		 System.out.println("ENter the B Value:");
+		 System.out.println("Enter the B Value:");
 		 B = sc.nextInt();
 		 
 		 System.out.println("1. Addition");

@@ -1,6 +1,6 @@
 import java.util.*;
 
-class D{
+class E{
 	int a;
 	void getA() {
 		Scanner sc = new Scanner(System.in);
@@ -11,7 +11,7 @@ class D{
 		System.out.println("A :"+a);
 	}
 }
-class B extends D{
+class F extends E{
 	int b;
 	void getB() {
 		Scanner sc = new Scanner(System.in);
@@ -22,7 +22,7 @@ class B extends D{
 		System.out.println("B :"+b);
 	}
 }
-class C extends B{
+class G extends F{
 	int c;
 	void getC() {
 		Scanner sc = new Scanner(System.in);
@@ -35,7 +35,7 @@ class C extends B{
 }
 public class MultilevelInheritance {
     public static void main(String [] args) {
-    	C c1 = new C();
+    	G c1 = new G();
     	c1.getA();
     	c1.getB();
     	c1.getC();
