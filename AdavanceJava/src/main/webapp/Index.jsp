@@ -13,7 +13,7 @@
  <br>
  <font size="100px" color="Green">Piyush Rameshbhai Panchal.</font>
  <br> <br>
- <img src="images/1.jpg"><br><br>
+ <img src="images/1.jpeg"><br><br>
  <img src="images/2.jpg"><br><br>
   <img src="images/3.jpg">
  
