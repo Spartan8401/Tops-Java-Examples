@@ -17,15 +17,15 @@
  %>
 <table border="2" width="100%" cellpadding="10px" cellspacing="10px">
         <tr>
-           <td>Id</td>
-           <td>FirstName</td>
-           <td>LastName</td>
-           <td>Email</td>
-           <td>Mobile</td>
-           <td>Address</td>
-           <td>Gender</td>
-           <td>Edit</td>
-           <td>Delete</td>
+           <td><b>Id</b></td>
+           <td><b>FirstName</b></td>
+           <td><b>LastName</b></td>
+           <td><b>Email</b></td>
+           <td><b>Mobile</b></td>
+           <td><b>Address</b></td>
+           <td><b>Gender</b></td>
+           <td><b>Edit</b></td>
+           <td><b>Delete</b></td>
            </tr>
            
            <%
