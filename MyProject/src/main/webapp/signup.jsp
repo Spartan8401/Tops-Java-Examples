@@ -30,45 +30,44 @@
         <div class="row px-xl-5">
             <div class="col-lg-12 mb-12">
                 <div class="contact-form bg-light p-30">
-                    <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" method="post"  action="UserController">
+                <b style="color: red;">
+                    <%
+                        if(request.getAttribute("msg")!=null){
+                        	out.print(request.getAttribute("msg"));
+                        }
+                    %>
+                    </b>
+                    <form method="post"  action="UserController">
                         <div class="control-group">
-                            <input type="text" class="form-control" name="fname" id="name" placeholder="Your First Name"
-                                required="required" />
+                            <input type="text" class="form-control" name="fname" id="name" placeholder="Your First Name" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <input type="text" class="form-control" name="lname" id="name" placeholder="Your Last Name"
-                                required="required"  />
+                            <input type="text" class="form-control" name="lname" id="name" placeholder="Your Last Name" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                                required="required"  />
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <input type="text" class="form-control" name="mobile" id="subject" placeholder="Mobile"
-                                required="required"  />
+                            <input type="text" class="form-control" name="mobile" id="subject" placeholder="Mobile" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <textarea class="form-control" rows="8" name="address" id="message" placeholder="Address"
-                                required="required"></textarea>
+                            <textarea class="form-control" rows="8" name="address" id="message" placeholder="Address"></textarea>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <input type="password" class="form-control" name="password" id="name" placeholder="Your password"
-                                required="required" />
+                            <input type="password" class="form-control" name="password" id="name" placeholder="Your password" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <input type="password" class="form-control" name="cpassword" id="name" placeholder="Your confirm password"
-                                required="required" />
+                            <input type="password" class="form-control" name="cpassword" id="name" placeholder="Your confirm password"/>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div>
-                            <button class="btn btn-primary py-2 px-4" type="submit" name="action" id="sendMessageButton" value="Sign Up">Sign Up</button>
+                            <button class="btn btn-primary py-2 px-4" type="submit" name="action"  value="Sign Up">Sign Up</button>
                         </div>
                     </form>
                 </div>

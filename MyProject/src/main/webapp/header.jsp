@@ -1,3 +1,4 @@
+<%@page import="com.bean.user"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -106,10 +107,38 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Account <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                <a href="login.jsp" class="dropdown-item">Login</a>
-                                <a href="signup.jsp" class="dropdown-item">Sign Up</a>
-                                    <a href="cart.jsp" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.jsp" class="dropdown-item">Checkout</a>
+                                <%
+                                       user u=null;
+                                      if(session !=null){
+                                    	  if(session.getAttribute("u")!=null){
+                                                 u =(user) session.getAttribute("u");	
+                                         %>
+                                         <a href="cart.jsp" class="dropdown-item">Shopping Cart</a>
+                                         <a href="checkout.jsp" class="dropdown-item">Checkout</a>
+                                           <a href="logout.jsp" class="dropdown-item">Logout</a>
+                                         
+                                         <%         
+                                    	  }
+                                    	  else{
+                                    	  %>
+                                    	   <a href="login.jsp" class="dropdown-item">Login</a>
+                                           <a href="signup.jsp" class="dropdown-item">Sign Up</a>
+                                    	  
+                                    	  <% 
+                                    	  }  
+                                      }
+                                      else{
+                                    	  %>
+                                    	  <a href="login.jsp" class="dropdown-item">Login</a>
+                                          <a href="signup.jsp" class="dropdown-item">Sign Up</a>
+                                          
+                                          <%
+                                      }
+                                      
+                                %>
+                                
+                               
+                                    
                                 </div>
                             </div>
                             <a href="contact.jsp" class="nav-item nav-link">Contact</a>

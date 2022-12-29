@@ -30,24 +30,28 @@
         <div class="row px-xl-5">
             <div class="col-lg-12 mb-12">
                 <div class="contact-form bg-light p-30">
-                    <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" method="post"  action="UserController">
+                <b style="color: red;">
+                    <%
+                        if(request.getAttribute("msg")!=null){
+                        	out.print(request.getAttribute("msg"));
+                        }
+                    %>
+                    </b>
+                    <form  method="post"  action="UserController">
                         
                         <div class="control-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                                required="required"  />
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" />
                             <p class="help-block text-danger"></p>
                         </div>
                        
                        
                         <div class="control-group">
-                            <input type="password" class="form-control" name="password" id="name" placeholder="Your password"
-                                required="required" />
+                            <input type="password" class="form-control" name="password" id="name" placeholder="Your password"/>
                             <p class="help-block text-danger"></p>
                         </div>
                        
                         <div>
-                            <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Log In</button>
+                            <button class="btn btn-primary py-2 px-4" type="submit" name="action" value="Login">Log In</button>
                         </div>
                     </form>
                 </div>
