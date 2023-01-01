@@ -65,28 +65,40 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="about.jsp"> About <span class="sr-only">(current)</span></a>
+                                            <a class="nav-link active" href="about.jsp">About<span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="event.jsp"> Event </a>
+                                            <a class="nav-item nav-link" href="event.jsp"> Event </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gallery.jsp"> Gallery </a>
+                                            <a class="nav-item nav-link" href="gallery.jsp"> Gallery </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="top-dj.jsp"> Top DJ </a>
+                                            <a class="nav-item nav-link" href="top-dj.jsp">Top DJ</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="schedule.jsp"> Schedule </a>
+                                            <a class="nav-item nav-link" href="schedule.jsp">Schedule</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="blog.jsp"> Blog </a>
+                                            <a class="nav-item nav-link" href="blog.jsp">Blog</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="faq.jsp"> Faq </a>
+                                            <a class="nav-item nav-link" href="faq.jsp">Faq</a>
                                         </li>
+                                <li>
+                                 <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Account <i class="fa fa-angle-down mt-1"></i></a>
+                                <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
+                                          <a href="login.jsp" class=" dropdown-item">Login</a>
+                                           <a href="signup.jsp" class="dropdown-item">Sign Up</a>
+                                           <a href="logout.jsp" class="dropdown-item">Logout</a>                	                               
+                                </div>
+                            </div>
+                            </li>
+                           
                                         <li class="nav-item">
-                                            <a class="nav-link" href="contact.jsp"> Contact</a>
+                                            <a class="nav-item nav-link" href="contact.jsp"> Contact</a>
+                                            
                                         </li>
                                     </ul>
                                 </div>
@@ -97,58 +109,10 @@
             </div>
         </div>
         <!-- header end -->
-        
-
-        
-        <!-- footer begin -->
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-5 col-lg-4 d-xl-flex d-lg-flex align-items-center">
-                        <div class="logo">
-                            <a href="index-2.jsp"><img src="assets/img/logo.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-xl-7 col-lg-8">
-                        <div class="footer-menu">
-                            <nav class="navbar navbar-expand-lg">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="index-2.jsp">About <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="event.jsp">Event</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="gallery.jsp">Gallery</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="top-dj.jsp">Top DJ</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="schedule.jsp">Schedule</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="blog.jsp">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="faq.jsp">Faq</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="contact.jsp">Contact</a>
-                                    </li>
-                                    
-                                    
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- footer end -->
-     
-        <!-- jquery -->
+      
+    
+               
+              <!-- jquery -->
         <script src="assets/js/jquery.js"></script>
         <!-- bootstrap -->
         <script src="assets/js/bootstrap.min.js"></script>
@@ -162,6 +126,7 @@
         <script src="assets/js/wow.min.js"></script>
         <!-- main -->
         <script src="assets/js/main.js"></script>
+      
     </body>
 
 </html>

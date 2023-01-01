@@ -373,49 +373,7 @@
     </div>
     <!-- subscribe newsletter end -->
     
-    <!-- contact begin -->
-    <div class="contact">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-10 col-lg-10">
-                    <div class="add-space section-title text-center">
-                        <h2>Drop A Message</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-8">
-                    <div class="contact-form">
-                        <form>
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6">
-                                    <input type="text" placeholder="Enter your name">
-                                    <span></span>
-                                </div>
-                                <div class="col-xl-6 col-lg-6">
-                                    <input type="email" placeholder="Enter your email">
-                                    <span></span>
-                                </div>
-                                <div class="col-xl-12 col-lg-12">
-                                    <input type="text" placeholder="Enter your subject">
-                                    <span></span>
-                                </div>
-                                <div class="col-xl-12 col-lg-12">
-                                    <textarea placeholder="Write a message"></textarea>
-                                    <span class="textarea"></span>
-                                </div>
-                                <div class="col-xl-6 col-lg-6">
-                                    <button>Send Us Now</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- contact end -->
-
+    
    </body>
     
 </html>
