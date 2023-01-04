@@ -30,7 +30,7 @@ public class CustomerDao {
     	 boolean flag=false;
     	 try {
 			Connection conn=ProjectUtil.creConnection();
-			String sql="Select * from user where email=?";
+			String sql="Select * from customer where email=?";
 			PreparedStatement pst=conn.prepareStatement(sql);
 			pst.setString(1, "email");
 			ResultSet rs=pst.executeQuery();
@@ -45,28 +45,28 @@ public class CustomerDao {
     	 return flag;
      }
      public static Customer login(String email) {
-    	 Customer u=null;
+    	 Customer c=null;
     	 try {
     	    Connection conn=ProjectUtil.creConnection();
- 			String sql="Select * from user where email=?";
+ 			String sql="Select * from customer where email=?";
  			PreparedStatement pst=conn.prepareStatement(sql);
  			pst.setString(1, email);
  			ResultSet rs=pst.executeQuery();
  			if(rs.next()) {
- 			     u=new Customer();
- 			     u.setCid(rs.getInt("uid"));
- 			     u.setFname(rs.getString("fname"));
- 			     u.setLname(rs.getString("lname"));
- 			     u.setEmail(rs.getString("email"));
- 			     u.setMobile(rs.getString("mobile"));
- 			     u.setAddress(rs.getString("address"));
- 		    	 u.setPassword(rs.getString("password")); 			     			     
+ 			     c=new Customer();
+ 			     c.setCid(rs.getInt("cid"));
+ 			     c.setFname(rs.getString("fname"));
+ 			     c.setLname(rs.getString("lname"));
+ 			     c.setEmail(rs.getString("email"));
+ 			     c.setMobile(rs.getString("mobile"));
+ 			     c.setAddress(rs.getString("address"));
+ 		    	 c.setPassword(rs.getString("password")); 			     			     
  			}
 			
 		} catch (Exception e) {
              e.printStackTrace();
 		}
-    	 return u;
+    	 return c;
     	 
      }
 	

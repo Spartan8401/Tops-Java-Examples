@@ -37,17 +37,17 @@ public class CustomerController extends HttpServlet {
 	      }
 		else if(action.equalsIgnoreCase("login"))
 		{
-			Customer u=CustomerDao.login(request.getParameter("email"));
-			if(u==null) {
+			Customer c=CustomerDao.login(request.getParameter("email"));
+			if(c==null) {
 				request.setAttribute("msg", "Email is Not Registered");
 				request.getRequestDispatcher("login.jsp").forward(request, response);	
 				
 			   }
 			else
 			  {
-				if(u.getPassword().equals(request.getParameter("password"))) {
+				if(c.getPassword().equals(request.getParameter("password"))) {
 					 HttpSession session=request.getSession();
-					 session.setAttribute("u", u);
+					 session.setAttribute("c", c);
 						 request.getRequestDispatcher("index.jsp").forward(request, response);
 					 
 				}
