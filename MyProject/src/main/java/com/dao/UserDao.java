@@ -26,24 +26,24 @@ public class UserDao {
 		   e.printStackTrace();
 		}
 	}
-     public static boolean checkEmail(String email) {
-    	 boolean flag=false;
-    	 try {
+	public static boolean checkEmail(String email)
+	{
+		boolean flag=false;
+		try {
 			Connection conn=ProjectUtil.creConnection();
-			String sql="Select * from user where email=?";
+			String sql="select * from user where email=?";
 			PreparedStatement pst=conn.prepareStatement(sql);
-			pst.setString(1, "email");
+			pst.setString(1, email);
 			ResultSet rs=pst.executeQuery();
-			if(rs.next()) {
+			if(rs.next())
+			{
 				flag=true;
 			}
-			
-			
 		} catch (Exception e) {
-            e.printStackTrace();
+			e.printStackTrace();
 		}
-    	 return flag;
-     }
+		return flag;
+	}
      public static user login(String email) {
     	 user u=null;
     	 try {
