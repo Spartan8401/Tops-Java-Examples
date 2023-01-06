@@ -27,24 +27,24 @@ public class CustomerDao {
 		}
 		
 	}
-	 public static boolean checkEmail(String email) {
-    	 boolean flag=false;
-    	 try {
+	public static boolean checkEmail(String email)
+	{
+		boolean flag=false;
+		try {
 			Connection conn=ProjectUtil.creConnection();
-			String sql="Select * from customer where email=?";
+			String sql="select * from customer where email=?";
 			PreparedStatement pst=conn.prepareStatement(sql);
-			pst.setString(1, "email");
+			pst.setString(1, email);
 			ResultSet rs=pst.executeQuery();
-			if(rs.next()) {
+			if(rs.next())
+			{
 				flag=true;
 			}
-			
-			
 		} catch (Exception e) {
-            e.printStackTrace();
+			e.printStackTrace();
 		}
-    	 return flag;
-     }
+		return flag;
+	}
      public static customer login(String email) {
     	 customer c=null;
     	 try {
@@ -71,6 +71,17 @@ public class CustomerDao {
     	 return c;
     	 
      }
+     public static void changePassword(String email,String password) {
+    	 try {
+			Connection conn=ProjectUtil.creConnection();
+			String sql="update customer set password=? where email=?";
+			PreparedStatement pst=conn.prepareStatement(sql);
+			pst.setString(1, password);
+			pst.setString(2, email);
+			pst.executeUpdate();
+		} catch (Exception e) {
+            e.printStackTrace();
+		}
 	
-
+     }
 }

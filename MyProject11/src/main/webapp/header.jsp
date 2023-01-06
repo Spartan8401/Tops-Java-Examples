@@ -105,6 +105,7 @@
                                     	  %>
                                     	   <a href="login.jsp" class="dropdown-item">Login</a>
                                            <a href="signup.jsp" class="dropdown-item">Sign Up</a>
+                                             <a href="forgot-password.jsp" class="dropdown-item">Forgot Password</a>
                                     	  
                                     	  <% 
                                     	  }  
