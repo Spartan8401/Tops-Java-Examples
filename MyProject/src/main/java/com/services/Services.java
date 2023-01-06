@@ -48,8 +48,8 @@ public class Services {
 		}		
 	}
 	public static void sendMail1(String emailid,String pass){
-		final String username  = "jigar93776@gmail.com";
-		final String password   = "jigar@123";
+		final String username  = "prpanchal007@gmail.com";
+		final String password   = "Piyush@8401";
 		
  
 		Properties props = new Properties();
