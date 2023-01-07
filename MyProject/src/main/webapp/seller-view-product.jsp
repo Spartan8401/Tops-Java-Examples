@@ -1,68 +1,49 @@
+<%@page import="com.dao.ProductDao"%>
+<%@page import="com.bean.Product"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  
+    
 </head>
 
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="seller-header.jsp" %>
 
-    <!-- Breadcrumb Start -->
-    <div class="container-fluid">
+    <!-- Products Start -->
+    <div class="container-fluid pt-5 pb-3">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">My Products</span></h2>
         <div class="row px-xl-5">
-            <div class="col-12">
-                <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <span class="breadcrumb-item active">Log in</span>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb End -->
-
-
-    <!-- Contact Start -->
-    <div class="container-fluid">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Log In</span></h2>
-        <div class="row px-xl-5">
-            <div class="col-lg-12 mb-12">
-                <div class="contact-form bg-light p-30">
-                <b style="color: red;">
-                    <%
-                        if(request.getAttribute("msg")!=null){
-                        	out.print(request.getAttribute("msg"));
-                        }
-                    %>
-                    </b>
-                    <form  method="post"  action="UserController">
-                        
-                        <div class="control-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" />
-                            <p class="help-block text-danger"></p>
+        <%
+           List<Product> list=ProductDao.getProductsBySeller(u.getUid());
+           for(Product p:list){
+        %>
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="product_images/<%=p.getProduct_image() %>" alt="" style="height: 300px; width: 300px">
+                        <div class="product-action">
+                            <a class="btn btn-outline-dark btn-square" href="seller-product-detail.jsp?pid=<%=p.getPid()%>"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                         </div>
-                       
-                       
-                        <div class="control-group">
-                            <input type="password" class="form-control" name="password" id="name" placeholder="Your password"/>
-                            <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="text-center py-4">
+                        <a class="h6 text-decoration-none text-truncate" href=""><%=p.getProduct_name() %></a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5><%=p.getProduct_price() %></h5><h6 class="text-muted ml-2"></h6>
                         </div>
-                       
-                        <div>
-                            <button class="btn btn-primary py-2 px-4" type="submit" name="action" value="Login">Log In</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-           
+             <%} %>
         </div>
     </div>
-    <!-- Contact End -->
+    <!-- Products End -->
 
 
-    <!-- Footer Start -->
+      <!-- Footer Start -->
     <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">

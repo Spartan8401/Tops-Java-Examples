@@ -1,3 +1,5 @@
+<%@page import="com.dao.ProductDao"%>
+<%@page import="com.bean.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,7 +10,7 @@
 </head>
 
 <body>
-<%@ include file="header.jsp" %>
+ <%@ include file="seller-header.jsp" %>
 
     <!-- Breadcrumb Start -->
     <div class="container-fluid">
@@ -16,7 +18,7 @@
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
                     <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <span class="breadcrumb-item active">Log in</span>
+                    <span class="breadcrumb-item active">Edit Product</span>
                 </nav>
             </div>
         </div>
@@ -26,7 +28,7 @@
 
     <!-- Contact Start -->
     <div class="container-fluid">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Log In</span></h2>
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Edit Product</span></h2>
         <div class="row px-xl-5">
             <div class="col-lg-12 mb-12">
                 <div class="contact-form bg-light p-30">
@@ -37,21 +39,87 @@
                         }
                     %>
                     </b>
-                    <form  method="post"  action="UserController">
+                    <%
+                    int pid=Integer.parseInt(request.getParameter("pid"));
+                    Product p=ProductDao.getProductsByPid(pid);
+                    %>
+                    <form method="post"  action="ProductController" enctype="multipart/form-data">
+                    <input type="hidden" name="seller" value="<%=u.getUid() %>">
+                     <input type="hidden" name="pid" value="<%=p.getPid() %>">
+                     <div class="control-group">
+                          <select name="product_category"  class="form-control" id="name">
+                          <%
+                            if(p.getProduct_category().equals("men")){
+                            	%>
+                            	<option>---Select Product Category---</option>
+	                             <option value="men" selected="selected">Men</option>
+	                             <option value="women">Women</option>
+	                             <option value="accessories">Accessories</option>
+	                            	
+                            	
+                            	<%
+                            	
+                            }
+                            else if(p.getProduct_category().equals("women")){
+                            	%>
+                            	<option>---Select Product Category---</option>
+	                             <option value="men" >Men</option>
+	                             <option value="women" selected="selected">Women</option>
+	                             <option value="accessories">Accessories</option>
+	                            	
+                            	
+                            	<%
+                            }
+                            else if(p.getProduct_category().equals("accessories")){
+                            	%>
+                            	<option>---Select Product Category---</option>
+	                             <option value="men">Men</option>
+	                             <option value="women" >Women</option>
+	                             <option value="accessories" selected="selected">Accessories</option>
+	                            	
+                            	
+                            	<%
+                            }
+                            else{
+                            	%>
+                            	<option>---Select Product Category---</option>
+	                             <option value="men">Men</option>
+	                             <option value="women">Women</option>
+	                             <option value="accessories">Accessories</option>
+	                            	
+                            	
+                            	<%
+                            }
+                          
+                          %>
+                          
+                          </select>
+                           <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control" name="product_name" id="name" value="<%=p.getProduct_name() %>" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control" name="product_price" id="name" value="<%=p.getProduct_price()%>" />
+                            <p class="help-block text-danger"></p>
+                        </div>
                         
                         <div class="control-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" />
+                            <textarea class="form-control" rows="8" name="product_desc" id="message"><%=p.getProduct_desc()%></textarea>
                             <p class="help-block text-danger"></p>
                         </div>
-                       
-                       
+                        
                         <div class="control-group">
-                            <input type="password" class="form-control" name="password" id="name" placeholder="Your password"/>
+                            <img alt="" src="product_images/<%=p.getProduct_image()%>">
+                            </div>
+                        
+                        <div class="control-group">
+                            <input type="file" class="form-control" name="product_image"/>
                             <p class="help-block text-danger"></p>
                         </div>
-                       
                         <div>
-                            <button class="btn btn-primary py-2 px-4" type="submit" name="action" value="Login">Log In</button>
+                            <button class="btn btn-primary py-2 px-4" type="submit" name="action"  value="update Product">Update Product</button>
                         </div>
                     </form>
                 </div>

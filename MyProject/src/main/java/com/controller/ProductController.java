@@ -61,6 +61,56 @@ public class ProductController extends HttpServlet {
            	 request.setAttribute("msg", "Product Add Successfully");
            	 request.getRequestDispatcher("seller-add-product.jsp").forward(request, response);
          }
+         else if(action.equalsIgnoreCase("update product")) {
+        	 Product p=new Product();
+        	 if(p.getProduct_image()!=null) {
+        	 try {
+        		 String savePath ="C:\\Users\\hpanc\\eclipse-workspace\\MyProject\\src\\main\\webapp\\product_images";
+            	 File fileSaveDir=new File(savePath);
+            	 if(!fileSaveDir.exists()) {
+            		 fileSaveDir.mkdir();
+            	 }
+            	 Part file1 =request.getPart("product_image");
+            	 String fileName=extractfilenameString(file1);
+            	 p.setProduct_image(fileName);
+            	 file1.write(savePath + File.separator + fileName);
+            	 String filePath = savePath + File.separator + fileName;
+            	 
+            	 String savePath2 = "C:\\Users\\hpanc\\eclipse-workspace\\MyProject\\src\\main\\webapp\\product_images";
+            	 File imgSaveDir =new File(savePath2);
+            	 if(imgSaveDir.exists()) {
+            		 imgSaveDir.mkdir();
+            	 }
+				
+			} catch (Exception e) {
+                 e.printStackTrace();
+			}
+        	 p.setPid(Integer.parseInt(request.getParameter("pid")));
+        	 p.setSeller(Integer.parseInt(request.getParameter("seller")));
+        	 p.setProduct_category(request.getParameter("product_category"));
+           	 p.setProduct_name(request.getParameter("product_name"));
+           	 p.setProduct_price(Integer.parseInt(request.getParameter("product_price")));
+           	 p.setProduct_desc(request.getParameter("product_desc"));
+           	 
+           	 ProductDao.updateProduct(p);
+           	 request.setAttribute("msg", "Product Edit Successfully");
+           	 request.getRequestDispatcher("seller-view-product.jsp").forward(request, response);
+         }
+         }
+         else {
+        	 Product p=new Product();
+        	 p.setPid(Integer.parseInt(request.getParameter("pid")));
+        	 p.setSeller(Integer.parseInt(request.getParameter("seller")));
+        	 p.setProduct_category(request.getParameter("product_category"));
+           	 p.setProduct_name(request.getParameter("product_name"));
+           	 p.setProduct_price(Integer.parseInt(request.getParameter("product_price")));
+           	 p.setProduct_desc(request.getParameter("product_desc"));
+           	 p.setProduct_image(request.getParameter("produc_image"));
+           	 ProductDao.updateProduct(p);
+           	 request.setAttribute("msg", "Product Edit Successfully");
+           	 request.getRequestDispatcher("seller-view-product.jsp").forward(request, response);
+        	 
+         }
 	}
 
 
