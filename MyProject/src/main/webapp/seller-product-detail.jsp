@@ -54,7 +54,7 @@
                        
                         <a href="seller-edit-product.jsp?pid=<%=p.getPid()%>"><button class="btn btn-info px-3">Edit</button></a>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                         <a href=""><button class="btn btn-danger px-3">Delete</button></a>
+                         <a href="seller-delete-product.jsp?pid=<%=p.getPid()%>"><button class="btn btn-danger px-3">Delete</button></a>
                     </div>
                 </div>
             </div>

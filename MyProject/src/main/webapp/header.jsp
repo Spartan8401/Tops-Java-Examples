@@ -103,7 +103,6 @@
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.jsp" class="nav-item nav-link active">Home</a>
                             <a href="shop.jsp" class="nav-item nav-link">Shop</a>
-                            <a href="detail.jsp" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Account <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
@@ -114,6 +113,7 @@
                                                  u =(user) session.getAttribute("u");	
                                          %>
                                          <a href="cart.jsp" class="dropdown-item">Shopping Cart</a>
+                                         <a href="wishlist.jsp" class="dropdown-item">WishList</a>
                                          <a href="checkout.jsp" class="dropdown-item">Checkout</a>
                                            <a href="logout.jsp" class="dropdown-item">Logout</a>
                                          

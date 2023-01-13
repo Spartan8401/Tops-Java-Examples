@@ -91,5 +91,39 @@ public class ProductDao {
                e.printStackTrace();
 		 }
 	}
+	public static void deleteProductsByPid(int pid){
+		try {
+			Connection conn=ProjectUtil.creConnection();
+			String sql="delete from product where pid=?";
+			PreparedStatement pst=conn.prepareStatement(sql);
+			pst.setInt(1, pid);
+			pst.executeUpdate();
+		} catch (Exception e) {
+             e.printStackTrace();
+		}
+	}
 
+	public static List<Product> getAllProducts(){
+		List<Product> list=new ArrayList<>();
+		try {
+			Connection conn=ProjectUtil.creConnection();
+			String sql="select * from product";
+			PreparedStatement pst=conn.prepareStatement(sql);
+			ResultSet rs=pst.executeQuery();
+			while(rs.next()) {
+				Product p=new Product();
+				p.setPid(rs.getInt("pid"));
+				p.setSeller(rs.getInt("seller"));
+                p.setProduct_category(rs.getString("product_category"));
+                p.setProduct_name(rs.getString("product_name"));
+                p.setProduct_price(rs.getInt("product_price"));
+                p.setProduct_desc(rs.getString("product_desc"));
+                p.setProduct_image(rs.getString("product_image"));
+                list.add(p);
+			}
+		} catch (Exception e) {
+             e.printStackTrace();
+		}
+		return list;
+	}
 }

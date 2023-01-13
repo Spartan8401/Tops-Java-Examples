@@ -113,7 +113,10 @@
                         <div class="control-group">
                             <img alt="" src="product_images/<%=p.getProduct_image()%>">
                             </div>
-                        
+                          <div class="control-group">
+                            <input type="hidden" class="form-control" name="product_image1" value="<%=p.getProduct_image()%>"/>
+                            <p class="help-block text-danger"></p>
+                        </div>
                         <div class="control-group">
                             <input type="file" class="form-control" name="product_image"/>
                             <p class="help-block text-danger"></p>

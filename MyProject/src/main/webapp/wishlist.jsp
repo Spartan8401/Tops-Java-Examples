@@ -1,3 +1,5 @@
+<%@page import="com.dao.WishListDao"%>
+<%@page import="com.bean.Wishlist"%>
 <%@page import="com.dao.ProductDao"%>
 <%@page import="com.bean.Product"%>
 <%@page import="java.util.List"%>
@@ -92,9 +94,9 @@
                         </div>
                     </div>
                     <% 
-                        List<Product> list=ProductDao.getAllProducts();
-                          for(Product p:list){
-                        	  
+                        List<Wishlist> list=WishListDao.getWishlistsByUser(u.getUid());
+                          for(Wishlist w:list){
+                        	  Product p=ProductDao.getProductsByPid(w.getPid());
                           
                     %>
                     <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
