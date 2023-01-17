@@ -10,7 +10,7 @@
     Wishlist w=new Wishlist();
     w.setPid(pid);
     w.setUid(uid);
-    WishListDao.add_to_wishlist(w);
+    WishListDao.remove_from_wishlist(w);
     List<Wishlist> list=WishListDao.getWishlistsByUser(u.getUid());
     int wishlist_count=list.size();
      session.setAttribute("wishlist_count", wishlist_count);   

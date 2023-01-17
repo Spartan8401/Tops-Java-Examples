@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.ServletException;
@@ -12,8 +13,10 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.User;
 
+import com.bean.Wishlist;
 import com.bean.user;
 import com.dao.UserDao;
+import com.dao.WishListDao;
 import com.services.Services;
 
 
@@ -66,6 +69,9 @@ public class UserController extends HttpServlet {
 					 HttpSession session=request.getSession();
 					 session.setAttribute("u", u);
 					 if(u.getUsertype().equals("buyer")) {
+						 List<Wishlist> list=WishListDao.getWishlistsByUser(u.getUid());
+	                        int wishlist_count=list.size();
+	                         session.setAttribute("wishlist_count", wishlist_count);   
 						 request.getRequestDispatcher("index.jsp").forward(request, response);
 					 }
 					 else {

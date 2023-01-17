@@ -95,6 +95,8 @@
                     </div>
                     <% 
                         List<Wishlist> list=WishListDao.getWishlistsByUser(u.getUid());
+                        int wishlist_count=list.size();
+                         session.setAttribute("wishlist_count", wishlist_count);   		
                           for(Wishlist w:list){
                         	  Product p=ProductDao.getProductsByPid(w.getPid());
                           
@@ -102,7 +104,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
                         <div class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="product_images/<%=p.getProduct_image() %>" alt="">
+                                <img class="img-fluid w-100" src="product_images/<%=p.getProduct_image() %>" alt="" style="width: 300px;height: 300px">
                                 <div class="product-action">
                                 
                                 <%

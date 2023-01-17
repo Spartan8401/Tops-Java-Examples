@@ -113,7 +113,7 @@
                                                  u =(user) session.getAttribute("u");	
                                          %>
                                          <a href="cart.jsp" class="dropdown-item">Shopping Cart</a>
-                                         <a href="wishlist.jsp" class="dropdown-item">WishList</a>
+                                         <a href="wishlist.jsp" class="dropdown-item">WishList(<%= session.getAttribute("wishlist_count") %>)</a>
                                          <a href="checkout.jsp" class="dropdown-item">Checkout</a>
                                            <a href="logout.jsp" class="dropdown-item">Logout</a>
                                          

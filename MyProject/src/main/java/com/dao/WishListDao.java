@@ -26,6 +26,21 @@ public class WishListDao {
 				
 	}
 	
+	public static void remove_from_wishlist(Wishlist w) {
+		try {
+			Connection conn=ProjectUtil.creConnection();
+			String sql="delete from wishlist where pid=? and uid=?";
+			PreparedStatement pst=conn.prepareStatement(sql);
+	        pst.setInt(1, w.getPid());
+	        pst.setInt(2, w.getUid());
+	        pst.executeUpdate();
+		} catch (Exception e) {
+                e.printStackTrace();
+		 }
+		
+				
+	}
+	
 	public static List<Wishlist> getWishlistsByUser(int uid){
 		List<Wishlist> list=new ArrayList<>();
 		try {
@@ -45,5 +60,23 @@ public class WishListDao {
             e.printStackTrace();
 		}
 		return list;
+	}
+	public static boolean cheakWishlist(int uid,int pid) {
+	   boolean	flag=false;
+	   try {
+		    Connection conn=ProjectUtil.creConnection();
+		    String sql="select * from wishlist where uid=? and pid=?";
+		    PreparedStatement pst=conn.prepareStatement(sql);
+		    pst.setInt(1, uid);
+		    pst.setInt(2, pid);
+		    ResultSet rs=pst.executeQuery();
+		    if(rs.next()) {
+		    	flag=true;
+		    }
+	} catch (Exception e) {
+        e.printStackTrace();
+	}
+	   return flag;
+		
 	}
 }
