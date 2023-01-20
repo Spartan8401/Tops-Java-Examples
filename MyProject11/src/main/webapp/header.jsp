@@ -49,7 +49,7 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-6 d-xl-block d-lg-block d-flex align-items-center">
                                 <div class="logo">
-                                    <a href="index-2.jsp"><img src="assets/img/logo.png" alt=""></a>
+                                    <a href="index.jsp"><img src="assets/img/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="d-xl-none d-lg-none d-block col-6">
@@ -66,29 +66,29 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="about.jsp">About</a>
+                                            <a class="nav-link active" href="about.jsp" style="color: blue;">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-item nav-link" href="event.jsp"> Event</a>
+                                            <a class="nav-item nav-link" href="event.jsp" style="color: blue;"> Event</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-item nav-link" href="gallery.jsp"> Gallery</a>
+                                            <a class="nav-item nav-link" href="gallery.jsp" style="color: blue;"> Gallery</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-item nav-link" href="top-dj.jsp">Top DJ</a>
+                                            <a class="nav-item nav-link" href="top-dj.jsp" style="color: blue;">Top DJ</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-item nav-link" href="schedule.jsp">Schedule</a>
+                                            <a class="nav-item nav-link" href="schedule.jsp" style="color: blue;">Schedule</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-item nav-link" href="blog.jsp">Blog</a>
+                                           <li class="nav-item">
+                                            <a class="nav-item nav-link" href="contact.jsp" style="color: blue;"> Contact</a>
+                                            
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-item nav-link" href="faq.jsp">Faq</a>
-                                        </li>
+                                        
+                                       
                                 <li>
                                  <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Account <i class="fa fa-angle-down mt-1"></i></a>
+                                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: blue;">My Account <i class=""></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
                                     <%
                                       customer c=null;
@@ -125,10 +125,7 @@
                             </div>
                             </li>
                            
-                                        <li class="nav-item">
-                                            <a class="nav-item nav-link" href="contact.jsp"> Contact</a>
-                                            
-                                        </li>
+                                     
                                     
                                     </ul>
                                 </div>

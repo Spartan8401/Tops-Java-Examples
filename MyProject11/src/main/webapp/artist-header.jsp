@@ -65,19 +65,16 @@
                             <nav class="navbar navbar-expand-lg">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
-      
-                                        <li class="nav-item">
-                                            <a class="nav-item nav-link" href="event.jsp">Add Event</a>
+                                       <li class="nav-item">
+                                            <a href="artist-index.jsp" class="nav-item nav-link active">Home</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-item nav-link" href="gallery.jsp">Add Gallery</a>
+                                            <a class="nav-item nav-link" href="artist-add-consert.jsp">Add Consert</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-item nav-link" href="top-dj.jsp">Add DJ</a>
+                                            <a class="nav-item nav-link" href="artist-view-consert.jsp">View Consert</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-item nav-link" href="schedule.jsp">Add Schedule</a>
-                                        </li>
+                                        
                                        
                                 <li>
                                  <div class="nav-item dropdown">
@@ -91,6 +88,7 @@
                                          %>
                                         
                                            <a href="logout.jsp" class="dropdown-item">Logout</a>
+                                           <a href="artist-change-password.jsp" class="dropdown-item">ChangePassword</a>
                                          
                                          <%         
                                     	  }

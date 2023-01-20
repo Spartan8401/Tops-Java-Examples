@@ -1,3 +1,6 @@
+<%@page import="javax.swing.JPanel"%>
+<%@page import="javax.swing.JFrame"%>
+<%@page import="java.awt.GridLayout"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,7 +11,7 @@
 </head>
 
 <body>
- <%@ include file="header.jsp" %>
+   <%@ include file="header.jsp" %>
 
     <!-- Breadcrumb Start -->
     <div class="container-fluid">
@@ -23,7 +26,7 @@
     </div>
     <!-- Breadcrumb End -->
 
-
+   
     <!-- Contact Start -->
     <div class="container-fluid">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Sign Up</span></h2>

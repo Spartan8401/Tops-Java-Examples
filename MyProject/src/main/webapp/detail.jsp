@@ -1,4 +1,5 @@
-	<%@page import="com.dao.WishListDao"%>
+	<%@page import="com.dao.CartDao"%>
+<%@page import="com.dao.WishListDao"%>
 	<%@page import="com.bean.Wishlist"%>
 	<%@page import="com.dao.ProductDao"%>
 	<%@page import="com.bean.Product"%>
@@ -95,14 +96,31 @@
 	                        <%
 	                             if(session.getAttribute("u")!=null){
 	                         %>
+	                         
+	                          <%
+	                            boolean flag=CartDao.cheakCart(u.getUid(), p.getPid());
+	                            if(flag==false){
+	                          %>
+	                         <a  href="add-to-cart.jsp?pid=<%=p.getPid() %>">
 	                        <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To
 	                            Cart</button>
+	                            </a>
+	                              <%}
+		                            else
+		                            {
+		                            %>
+		                             <a href="remove-from-cart.jsp?pid=<%=p.getPid() %>"> 
+		                         <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Remove From Cart</button> 
+		                            </a>
+	                            
+	                            <%} %>
+	                            
 	                          &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp; 
 	                          
 	                          
 	                          <%
-	                            boolean flag=WishListDao.cheakWishlist(u.getUid(), p.getPid());
-	                            if(flag==false){
+	                            boolean flag1=WishListDao.cheakWishlist(u.getUid(), p.getPid());
+	                            if(flag1==false){
 	                          %>
 		                          <a href="add-to-wishlist.jsp?pid=<%=p.getPid() %>"> 
 		                         <button class="btn btn-primary px-3"><i class="fa fa-heart mr-1"></i> Add To
