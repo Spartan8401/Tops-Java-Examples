@@ -32,12 +32,41 @@ public class CartDao {
 	}
 	
 	public static List<Cart> getCartByUser(int uid){
+		String payment_status="pending";
 		List<Cart> list=new ArrayList<>();
 		try {
 			Connection conn=ProjectUtil.creConnection();
-			String sql="select * from cart where uid=?";
+			String sql="select * from cart where uid=? and payment_status=?";
 			PreparedStatement pst=conn.prepareStatement(sql);
 			pst.setInt(1, uid);
+			pst.setString(2, payment_status);
+			ResultSet rs=pst.executeQuery();
+			while(rs.next()) {
+				Cart c=new Cart();
+				c.setCid(rs.getInt("cid"));
+				c.setUid(rs.getInt("uid"));
+				c.setPid(rs.getInt("pid"));
+				c.setProduct_price(rs.getInt("product_price"));
+				c.setProduct_qty(rs.getInt("product_qty"));
+				c.setTotal_price(rs.getInt("total_price"));
+				c.setPayment_status(rs.getString("payment_status"));
+				list.add(c);
+			}
+		} catch (Exception e) {
+          e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public static List<Cart> getMyOrder(int uid){
+		String payment_status="paid";
+		List<Cart> list=new ArrayList<>();
+		try {
+			Connection conn=ProjectUtil.creConnection();
+			String sql="select * from cart where uid=? and payment_status=?";
+			PreparedStatement pst=conn.prepareStatement(sql);
+			pst.setInt(1, uid);
+			pst.setString(2, payment_status);
 			ResultSet rs=pst.executeQuery();
 			while(rs.next()) {
 				Cart c=new Cart();
@@ -88,6 +117,59 @@ public class CartDao {
 		
 				
 	}
+	public static Cart getCartByCid(int cid){
+        Cart c=null;
+		try {
+			Connection conn=ProjectUtil.creConnection();
+			String sql="select * from cart where cid=?";
+			PreparedStatement pst=conn.prepareStatement(sql);
+			pst.setInt(1, cid);
+			ResultSet rs=pst.executeQuery();
+			if(rs.next()) {
+			    c=new Cart();
+				c.setCid(rs.getInt("cid"));
+				c.setUid(rs.getInt("uid"));
+				c.setPid(rs.getInt("pid"));
+				c.setProduct_price(rs.getInt("product_price"));
+				c.setProduct_qty(rs.getInt("product_qty"));
+				c.setTotal_price(rs.getInt("total_price"));
+				c.setPayment_status(rs.getString("payment_status"));
+			}
+		} catch (Exception e) {
+          e.printStackTrace();
+		}
+		return c;
+	}
 	
+	public static void updateCart(int cid,int product_qty,int total_price) {
+		try {
+			Connection conn=ProjectUtil.creConnection();
+			String sql="update cart set  product_qty=?,total_price=? where cid=?";
+			PreparedStatement pst=conn.prepareStatement(sql);
+	        pst.setInt(1, product_qty);
+	        pst.setInt(2, total_price);
+	        pst.setInt(3, cid);
+	        pst.executeUpdate();
+		} catch (Exception e) {
+                e.printStackTrace();
+		 }
+		
+				
+	}
+	public static void updatePaymentStatus(int cid) {
+		String payment_status="paid";
+		try {
+			Connection conn=ProjectUtil.creConnection();
+			String sql="update cart set  payment_status=? where cid=?";
+			PreparedStatement pst=conn.prepareStatement(sql);
+	        pst.setString(1, payment_status);
+	        pst.setInt(2, cid);
+	        pst.executeUpdate();
+		} catch (Exception e) {
+                e.printStackTrace();
+		 }
+		
+				
+	}
 
 }

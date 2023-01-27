@@ -1,5 +1,8 @@
+<%@page import="java.util.Random"%>
 <%@page import="com.dao.ProductDao"%>
 <%@page import="com.bean.Product"%>
+<%@page import="com.dao.CartDao"%>
+<%@page import="com.bean.Cart"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -11,39 +14,70 @@
 </head>
 
 <body>
-<%@ include file="seller-header.jsp" %>
-
-    <!-- Products Start -->
-    <div class="container-fluid pt-5 pb-3">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">My Products</span></h2>
+   <%@ include file="header.jsp" %>
+    <!-- Breadcrumb Start -->
+    <div class="container-fluid">
         <div class="row px-xl-5">
-        <%
-           List<Product> list=ProductDao.getProductsBySeller(u.getUid());
-           for(Product p:list){
-        %>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="product_images/<%=p.getProduct_image() %>" alt="" style="height: 300px; width: 300px">
-                        <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href="seller-product-detail.jsp?pid=<%=p.getPid()%>"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate" href=""><%=p.getProduct_name() %></a>
-                        <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5><%=p.getProduct_price() %></h5><h6 class="text-muted ml-2"></h6>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-12">
+                <nav class="breadcrumb bg-light mb-30">
+                    <a class="breadcrumb-item text-dark" href="#">Home</a>
+                    <a class="breadcrumb-item text-dark" href="#">Shop</a>
+                    <span class="breadcrumb-item active">My Order</span>
+                </nav>
             </div>
-             <%} %>
         </div>
     </div>
-    <!-- Products End -->
+    <!-- Breadcrumb End -->
 
 
-      <!-- Footer Start -->
+    <!-- Cart Start -->
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-lg-8 table-responsive mb-5">
+                <table class="table table-light table-borderless table-hover text-center mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Products</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                    <%
+                      Random randomGenerator = new Random();
+                	  int randomInt = randomGenerator.nextInt(1000000);
+                    
+                      int net_price=0;
+                      List<Cart> list=CartDao.getMyOrder(u.getUid());
+                      for(Cart c:list){
+                    	  net_price=net_price+c.getTotal_price();
+                    	  Product p=ProductDao.getProductsByPid(c.getPid());
+                    %>
+                        <tr>
+                            <td class="align-middle"><img src="product_images/<%=p.getProduct_image() %>" alt="" style="width: 50px;"><%=p.getProduct_name() %></td>
+                            <td class="align-middle"><%=p.getProduct_price() %></td>
+                            <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                   <form name="change_qty" method="post" action="CartController">
+                                        <input type="hidden" name="cid" value="<%=c.getCid() %>">
+                                    	<input type="number" name="product_qty" min="1" max="10" class="form-control form-control-sm bg-secondary border-0 text-center" value="<%=c.getProduct_qty()%>" onchange="this.form.submit();">
+                                   </form>
+                                </div>
+                            </td>
+                            <td class="align-middle"><%=c.getTotal_price() %></td>
+                        </tr>
+                        <%} %>
+                   </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Cart End -->
+
+
+    <!-- Footer Start -->
     <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">

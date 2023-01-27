@@ -1,6 +1,7 @@
 <%@page import="com.bean.user"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,6 +115,7 @@
                                          %>
                                          <a href="cart.jsp" class="dropdown-item">Shopping Cart(<%= session.getAttribute("cart_count") %>)</a>
                                          <a href="wishlist.jsp" class="dropdown-item">WishList(<%= session.getAttribute("wishlist_count") %>)</a>
+                                         <a href="myorder.jsp" class="dropdown-item">My Order</a>
                                          <a href="checkout.jsp" class="dropdown-item">Checkout</a>
                                            <a href="logout.jsp" class="dropdown-item">Logout</a>
                                          
