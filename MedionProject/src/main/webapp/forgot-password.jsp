@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +37,7 @@
                         }
                     %>
                     </b>
-                    <form  method="post"  action="UserController">
+                    <form  method="post"  action="UserController1">
                         
                         <div class="control-group">
                             <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" />

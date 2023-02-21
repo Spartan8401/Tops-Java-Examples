@@ -53,11 +53,12 @@
 	            <span class="navbar-toggler-icon"></span>
 	          </button>
 	
-                  <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+	      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.jsp" class="nav-item nav-link active">Home</a>
-                            <a href="shop.jsp" class="nav-item nav-link">Shop</a>
-                             <div class="nav-item dropdown">
+                            <a href="seller-index.jsp" class="nav-item nav-link active">Home</a>
+                            <a href="seller-add-product.jsp" class="nav-item nav-link">Add Product</a>
+                            <a href="seller-view-product.jsp" class="nav-item nav-link">View Product</a>
+                            <div class="nav-item dropdown">
                                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: white;">My Account <i class=""></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
                                 <%
@@ -66,11 +67,8 @@
                                     	  if(session.getAttribute("u")!=null){
                                                  u =(user1) session.getAttribute("u");	
                                          %>
-                                         <a href="cart.jsp" class="dropdown-item">Shopping Cart(<%= session.getAttribute("cart_count") %>)</a>
-                                         <a href="wishlist.jsp" class="dropdown-item">WishList(<%= session.getAttribute("wishlist_count") %>)</a>
-                                         <a href="myorder.jsp" class="dropdown-item">My Order</a>
-                                         <a href="checkout.jsp" class="dropdown-item">Checkout</a>
                                            <a href="logout.jsp" class="dropdown-item">Logout</a>
+                                           <a href="seller-change-password.jsp" class="dropdown-item">ChangePassword</a>
                                          
                                          <%         
                                     	  }
@@ -78,7 +76,6 @@
                                     	  %>
                                     	   <a href="login.jsp" class="dropdown-item">Login</a>
                                            <a href="signup.jsp" class="dropdown-item">Sign Up</a>
-                                           <a href="forgot-password.jsp" class="dropdown-item">Forgot Password</a>
                                     	  
                                     	  <% 
                                     	  }  
@@ -93,11 +90,12 @@
                                       
                                 %>
                                 
+                               
                                     
                                 </div>
-                            </div>             <a href="contact.jsp" class="nav-item nav-link">Contact</a>
+                            </div>
                         </div>
-                     
+                       
                     </div>
 	
 	        </nav>
