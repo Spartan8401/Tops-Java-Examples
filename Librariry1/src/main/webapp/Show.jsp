@@ -22,6 +22,9 @@
            <td><b>AuthorName</b></td>
            <td><b>Quntity</b></td>
            <td><b>Prize</b></td>
+           <td><b>IssueDate</b></td>
+           <td><b>SubmiteDate</b></td>
+          
            <td><b>Edit</b></td>
            <td><b>Delete</b></td>
            </tr>
@@ -34,6 +37,9 @@
                 <td><%=s.getAname() %></td>
                 <td><%=s.getQuntity() %></td>
                 <td><%=s.getPrize()%></td>
+                 <td><%=s.getIssuedate()%></td>
+                  <td><%=s.getSubmitedate()%></td>
+                
                
                 <td>
                 <form name="edit" method="post" action="StudentController">

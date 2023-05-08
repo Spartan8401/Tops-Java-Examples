@@ -2,8 +2,9 @@ package com.bin;
 
 public class Student {
    private int id;
-   private String bname,aname,quntity,prize;
+   private String bname,aname,quntity,prize,issuedate,submitedate;
    
+
 public int getId() {
 	return id;
 }
@@ -34,5 +35,18 @@ public String getPrize() {
 public void setPrize(String prize) {
 	this.prize = prize;
 }
+public String getIssuedate() {
+	return issuedate;
+}
+public void setIssuedate(String issuedate) {
+	this.issuedate = issuedate;
+}
+public String getSubmitedate() {
+	return submitedate;
+}
+public void setSubmitedate(String submitedate) {
+	this.submitedate = submitedate;
+}
+
 
 }

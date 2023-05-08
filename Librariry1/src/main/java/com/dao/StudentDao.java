@@ -13,12 +13,15 @@ public class StudentDao {
 	public static void insertStudent(Student s) {
 		try {
 			Connection conn = StudentUtil.creatConnection();
-			String sql = "insert into lib(bname,aname,quntity,prize) value(?,?,?,?) ";
+			String sql = "insert into lib(bname,aname,quntity,prize,issuedate,submitedate) value(?,?,?,?,?,?) ";
 			PreparedStatement pst=conn.prepareStatement(sql);
 			pst.setString(1, s.getBname());
 			pst.setString(2, s.getAname());
 			pst.setString(3, s.getQuntity());
 			pst.setString(4, s.getPrize());
+			pst.setString(5, s.getIssuedate());
+			pst.setString(6, s.getSubmitedate());
+			
 			pst.executeUpdate();
 		} catch (Exception e) {
               e.printStackTrace();
@@ -38,6 +41,9 @@ public class StudentDao {
 					s.setAname(rs.getString("aname"));
 					s.setQuntity(rs.getString("quntity"));					
 				    s.setPrize(rs.getString("prize"));
+				    s.setIssuedate(rs.getString("issuedate"));
+				    s.setSubmitedate(rs.getString("submitedate"));
+				    
 				    List.add(s);
 				}
 			} catch (Exception e) {
@@ -60,6 +66,10 @@ public class StudentDao {
 					s.setAname(rs.getString("aname"));
 					s.setQuntity(rs.getString("quntity"));					
 				    s.setPrize(rs.getString("prize"));
+				    s.setIssuedate(rs.getString("issuedate"));
+				    s.setSubmitedate(rs.getString("submitedate"));
+				    
+				   
 				  
 				   
 				}
@@ -71,14 +81,15 @@ public class StudentDao {
 		public static void updateStudent(Student s) {
 			try {
 				Connection conn =StudentUtil.creatConnection();
-				String sql="update lib set bname=?, aname=?,quntity=?,prize=? where id=?";
+				String sql="update lib set bname=?,aname=?,quntity=?,prize=?,issuedate=?,submitedate=? where id=?";
 				PreparedStatement pst=conn.prepareStatement(sql);
 				pst.setString(1, s.getBname());
 				pst.setString(2, s.getAname());
 				pst.setString(3, s.getQuntity());
 				pst.setString(4, s.getPrize());
-				pst.setInt(5, s.getId());
-				pst.setInt(7, s.getId());
+				pst.setString(5, s.getIssuedate());
+				pst.setString(6, s.getSubmitedate());
+                pst.setInt(7, s.getId());
 				pst.executeUpdate();
 			} catch (Exception e) {
                 e.printStackTrace();

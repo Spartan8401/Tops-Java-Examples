@@ -25,10 +25,12 @@ public class StudentController extends HttpServlet {
 	    	  s.setAname(request.getParameter("aname"));
 	    	  s.setQuntity(request.getParameter("quntity"));
 	    	  s.setPrize(request.getParameter("prize"));
+	    	  s.setIssuedate(request.getParameter("issuedate"));
+	    	  s.setSubmitedate(request.getParameter("submitedate"));
+	    	  
 	    	  StudentDao.insertStudent(s);
 	    	  request.setAttribute("msg", "Data Insert Successfully");
 	    	  request.getRequestDispatcher("Show.jsp").forward(request, response);
-	    	  // response.sendRedirect("Insert.jsp");
 	      }
 	      else if(action.equalsIgnoreCase("edit")) {
 	    	  int id=Integer.parseInt(request.getParameter("id"));
@@ -44,7 +46,8 @@ public class StudentController extends HttpServlet {
 	    	  s.setAname(request.getParameter("aname"));
 	    	  s.setQuntity(request.getParameter("quntity"));
 	    	  s.setPrize(request.getParameter("prize"));
-	    	 
+	    	  s.setIssuedate(request.getParameter("issuedate"));
+	    	  s.setSubmitedate(request.getParameter("submitedate"));
 	    	  StudentDao.updateStudent(s);
 	    	  response.sendRedirect("Show.jsp");
 	      }
