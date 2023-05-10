@@ -66,7 +66,7 @@
    <input type="submit"  name="action"   value="Insert"></td>
    </tr>
 </table>
- 
+  <a href="Show.jsp">Show ALL Student</a>
 </form>
 
 </body>
